@@ -1,0 +1,13 @@
+[package]
+name = "leptix"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+[dependencies]
+leptos = { version = "0.8.15", default-features = false }
+
+[features]
+default = []
+csr = ["leptos/csr"]
+ssr = ["leptos/ssr"]
