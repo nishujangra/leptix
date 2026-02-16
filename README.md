@@ -4,6 +4,7 @@ Simple UI components for Leptos.
 
 Currently available:
 - `Button`
+- `Input`
 
 ## Compatibility
 
@@ -15,9 +16,7 @@ Currently available:
 
 ## Status
 
-Experimental project.
-Built for learning and exploration.
-Maintenance not guaranteed.
+Somehow alive. May die at any moment. No guarantees.
 
 ---
 
@@ -27,7 +26,7 @@ From crates.io (when published):
 
 ```toml
 [dependencies]
-leptix = { version = "0.1.0", default-features = false, features = ["csr"] }
+leptix = { version = "0.1.1", default-features = false, features = ["csr"] }
 leptos = { version = "0.8.15", default-features = false, features = ["csr"] }
 ```
 
@@ -44,15 +43,22 @@ leptos = { version = "0.8.15", default-features = false, features = ["csr"] }
 ## Usage
 
 ```rust
-use leptix::Button;
+use leptix::{Button, Input};
 use leptos::{mount::mount_to_body, prelude::*};
 
 #[component]
 fn App() -> impl IntoView {
     let (count, set_count) = signal(0);
+    let (name, set_name) = signal(String::new());
 
     view! {
         <main>
+            <Input
+                placeholder="Your name"
+                model=(name.into(), set_name)
+            />
+            <p>"Hello, " {move || name.get()}</p>
+
             <p>"Count: " {count}</p>
             <Button
                 class="my-btn".to_string()
@@ -80,11 +86,27 @@ fn main() {
 - `on_click: Option<Callback<MouseEvent>>`: click callback.
 - `children: Children`: button content.
 
+## Input API
+
+- `class: Option<String>`: optional extra class names.
+- `placeholder: Option<String>`: placeholder text (supports `#[prop(into)]`).
+- `r#type: Option<String>`: input type, defaults to `"text"`.
+- `model: Option<(Signal<String>, WriteSignal<String>)>`: optional two-way string model.
+
+Example type usage:
+
+```rust
+view! {
+    <Input r#type="email" placeholder="name@example.com" />
+}
+```
+
 ---
 
-## Example in this repo
+## Examples in this repo
 
-- `examples/basic.rs`
+- `examples/basic.rs` (button showcase)
+- `examples/input.rs` (input showcase)
 
 Validate it with:
 
