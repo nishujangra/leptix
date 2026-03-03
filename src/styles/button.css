@@ -34,3 +34,44 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Primary variant (default) */
+.leptix-btn-primary {
+  background: var(--leptix-primary, #2563eb);
+  color: white;
+}
+
+.leptix-btn-primary:hover {
+  background: var(--leptix-primary-hover, #1d4ed8);
+}
+
+/* Secondary variant */
+.leptix-btn-secondary {
+  background: var(--leptix-secondary, #6b7280);
+  color: white;
+}
+
+.leptix-btn-secondary:hover {
+  background: var(--leptix-secondary-hover, #4b5563);
+}
+
+/* Danger variant */
+.leptix-btn-danger {
+  background: var(--leptix-danger, #dc2626);
+  color: white;
+}
+
+.leptix-btn-danger:hover {
+  background: var(--leptix-danger-hover, #b91c1c);
+}
+
+/* Outline variant */
+.leptix-btn-outline {
+  background: transparent;
+  color: var(--leptix-outline-text, #2563eb);
+  border: 2px solid var(--leptix-outline-border, #2563eb);
+}
+
+.leptix-btn-outline:hover {
+  background: var(--leptix-outline-hover, #f3f4f6);
+}
