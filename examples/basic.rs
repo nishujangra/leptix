@@ -1,4 +1,4 @@
-use leptix::Button;
+use leptix::components::{Button, ButtonVariant};
 use leptos::{mount::mount_to_body, prelude::*};
 
 const DEMO_CSS: &str = r#"
@@ -129,29 +129,21 @@ fn App() -> impl IntoView {
 
             <div class="demo-grid">
                 <section class="demo-card">
-                    <h2>"Core Behavior"</h2>
+                    <h2>"Button Variants"</h2>
                     <div class="demo-row">
-                        <Button on_click=make_click_cb("Primary")>"Primary"</Button>
-                        <Button disabled=true on_click=make_click_cb("Disabled")>"Disabled"</Button>
+                        <Button variant=ButtonVariant::Primary on_click=make_click_cb("Primary")>"Primary"</Button>
+                        <Button variant=ButtonVariant::Secondary on_click=make_click_cb("Secondary")>"Secondary"</Button>
+                        <Button variant=ButtonVariant::Danger on_click=make_click_cb("Danger")>"Danger"</Button>
+                        <Button variant=ButtonVariant::Outline on_click=make_click_cb("Outline")>"Outline"</Button>
+                    </div>
+                </section>
+
+                <section class="demo-card">
+                    <h2>"Button States"</h2>
+                    <div class="demo-row">
+                        <Button disabled=true>"Disabled"</Button>
                         <Button>"No Callback"</Button>
-                    </div>
-                </section>
-
-                <section class="demo-card">
-                    <h2>"Semantic Colors (via CSS vars)"</h2>
-                    <div class="demo-row">
-                        <Button class="btn-secondary".to_string() on_click=make_click_cb("Secondary")>"Secondary"</Button>
-                        <Button class="btn-success".to_string() on_click=make_click_cb("Success")>"Success"</Button>
-                        <Button class="btn-danger".to_string() on_click=make_click_cb("Danger")>"Danger"</Button>
-                    </div>
-                </section>
-
-                <section class="demo-card">
-                    <h2>"Visual Styles (via class)"</h2>
-                    <div class="demo-row">
-                        <Button class="btn-outline".to_string() on_click=make_click_cb("Outline")>"Outline"</Button>
-                        <Button class="btn-ghost".to_string() on_click=make_click_cb("Ghost")>"Ghost"</Button>
-                        <Button class="btn-pill".to_string() on_click=make_click_cb("Pill")>"Pill"</Button>
+                        <Button class="btn-pill".to_string()>"Custom Class (Pill)"</Button>
                     </div>
                 </section>
 
